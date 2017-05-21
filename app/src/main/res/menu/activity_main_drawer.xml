@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_uyeol"
+            android:icon="@drawable/uyeol"
+            android:title="Farmasiye Kayıt Ol" />
+        <item
+            android:id="@+id/nav_hakkimizda"
+            android:icon="@drawable/hakkimizda"
+            android:title="Hikayemiz" />
+        <item
+            android:id="@+id/nav_networkmarketing"
+            android:icon="@drawable/networkmarketing"
+            android:title="Network Marketing" />
+        <item
+            android:id="@+id/nav_sss"
+            android:icon="@drawable/sss"
+            android:title="S.S.S." />
+    </group>
+
+    <item android:title="Bizi Takip Edin">
+        <menu>
+            <item
+                android:id="@+id/nav_site"
+                android:icon="@drawable/website"
+                android:title="Web Sitemiz" />
+            <item
+                android:id="@+id/nav_facebook"
+                android:icon="@drawable/facebook"
+                android:title="Facebook" />
+            <item
+                android:id="@+id/nav_instagram"
+                android:icon="@drawable/instagram"
+                android:title="Instagram" />
+            <item
+                android:id="@+id/nav_twitter"
+                android:icon="@drawable/twitter"
+                android:title="Twitter" />
+            <item
+                android:id="@+id/nav_googleplus"
+                android:icon="@drawable/googleplus"
+                android:title="Google Plus" />
+            <item
+                android:id="@+id/nav_youtube"
+                android:icon="@drawable/youtube"
+                android:title="Youtube" />
+
+        </menu>
+    </item>
+
+    <item android:title="Bizi Tanıdıklarınıza Önerin">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/shareapp"
+                android:title="Paylaş" />
+        </menu>
+    </item>
+
+</menu>
