@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity
 
         //getSupportActionBar().setIcon(R.drawable.logolips);
         getSupportActionBar().setTitle("Hoş Geldiniz");
-        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.side_nav_bar));
+        //getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.side_nav_bar));
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,17 +53,27 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //setStatusBarTranslucent(true);
+        setStatusBarTranslucent(true);
 
-        Button b= (Button)findViewById(R.id.button);
-
-        b.setOnClickListener(new View.OnClickListener() {
+        Button btnKatalog = (Button) findViewById(R.id.btn_katalog);
+        btnKatalog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentDetail = new Intent(MainActivity.this, KatalogActivity.class);
                 startActivity(intentDetail);
             }
         });
+
+        Button btnSistem= (Button)findViewById(R.id.btn_sistem);
+        btnSistem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentDetail = new Intent(MainActivity.this, DetailActivity.class);
+                startActivity(intentDetail);
+            }
+        });
+
+
     }
 
     @Override

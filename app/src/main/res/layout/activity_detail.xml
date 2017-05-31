@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="2dp"
-    tools:context=".MainActivity"
-    android:background="@drawable/side_nav_bar"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:fitsSystemWindows="true"
     >
 
     <android.support.v7.widget.RecyclerView

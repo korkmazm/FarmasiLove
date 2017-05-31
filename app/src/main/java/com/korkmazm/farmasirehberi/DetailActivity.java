@@ -35,9 +35,9 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-
+        getSupportActionBar().setTitle("Sistem");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //setStatusBarTranslucent(false);
+        setStatusBarTranslucent(true);
         getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.side_nav_bar));
 
         mContext = getApplicationContext();
@@ -83,7 +83,7 @@ public class DetailActivity extends AppCompatActivity {
             return true;
         }
 
-        if (id == android.R.id.home){
+        if (id == android.R.id.home) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);

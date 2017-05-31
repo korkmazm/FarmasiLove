@@ -6,6 +6,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
@@ -41,7 +42,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         //collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
-        collapsingToolbarLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.side_nav_bar));
+        //collapsingToolbarLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.farmasilogo));
 
         /*fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -55,8 +56,10 @@ public class ScrollingActivity extends AppCompatActivity {
         webViewDetail.getSettings().setJavaScriptEnabled(true);
         webViewDetail.getSettings().setPluginState(WebSettings.PluginState.ON);
         webViewDetail.setWebContentsDebuggingEnabled(true);
+        webViewDetail.getSettings().setBuiltInZoomControls(true);
+        webViewDetail.getSettings().setDisplayZoomControls(false);
         String url = getIntent().getStringExtra("URL");
-        webViewDetail.loadUrl(url);
+
 
         webViewDetail.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -75,13 +78,24 @@ public class ScrollingActivity extends AppCompatActivity {
         webViewDetail.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
+                webViewDetail.loadUrl(url);
                 return false;
             }
         });
-
+        webViewDetail.loadUrl(url);
         progress = (ProgressBar) findViewById(R.id.progressBar4);
         progress.setMax(100);
+    }
+
+    @Override
+    public boolean onKeyDown(final int keyCode, final KeyEvent event) {
+
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && webViewDetail.canGoBack()) {
+            webViewDetail.goBack();
+            //If there is history, then the canGoBack method will return ‘true’//
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override
@@ -103,7 +117,7 @@ public class ScrollingActivity extends AppCompatActivity {
             return true;
         }
 
-        if (id == android.R.id.home){
+        if (id == android.R.id.home) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
